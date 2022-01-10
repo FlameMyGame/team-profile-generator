@@ -90,7 +90,7 @@ generateHTML = (data) => {
 }
 
 
-const GenerateTeamPage = function(employeeCards) {
+const generateTeamPage = function(employeeCards) {
     return `
     <DOCTYPE html>
     <html lang="en">
