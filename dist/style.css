@@ -3,8 +3,9 @@
 }
 
 :root {
-    --primary: rgb(161, 7, 7);
+    --primary: rgb(255, 57, 57);
     --secondary: white;
+    --alternate: rgb(28, 126, 255);
 }
 
 body {
@@ -22,7 +23,7 @@ body {
 }
 
 .card-header {
-    background-color: var(--primary);
+    background-color: var(--alternate);
     color: var(--secondary);
 }
 
