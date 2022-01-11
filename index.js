@@ -1,8 +1,8 @@
 const generateHTML = require('./src/generateHTML');
 
-const Manager = require("./employed/Manager");
-const Engineer = require("./employed/Engineer");
-const Intern = require("./employed/Intern");
+const Manager = require('./lib/Manager');
+const Engineer = require('./lib/Engineer');
+const Intern = require('./lib/Intern');
 
 const fs = require('fs');
 const inquirer = require('inquirer');
@@ -53,7 +53,7 @@ const addManager = () => {
             {
                 type: 'input',
                 name: 'officeNumber',
-                message: "Please enter the manager's office number.",
+                message: "Please enter the manager's office number",
                 validate: nameInput => {
                     if (isNaN(nameInput)) {
                         console.log('Please enter an office number!')
@@ -75,15 +75,15 @@ const addManager = () => {
 
 const addEmployee = () => {
     console.log(`
-    ============================
+    =================
     Adding employees to the team
-    ============================
+    =================
     `);
 
     return inquirer.prompt([{
                 type: 'list',
-                name: 'name',
-                message: "Please choose your employee's role.",
+                name: 'role',
+                message: "Please choose your employee's role",
                 choices: ['Engineer', 'Intern']
             },
             {
@@ -102,7 +102,7 @@ const addEmployee = () => {
             {
                 type: 'input',
                 name: 'id',
-                message: "Please enter the employee's ID!",
+                message: "Please enter the employee's ID.",
                 validate: nameInput => {
                     if (isNaN(nameInput)) {
                         console.log("Please enter the employee's ID!")
@@ -168,6 +168,7 @@ const addEmployee = () => {
                 employee = new Engineer(name, id, email, github);
 
                 console.log(employee);
+
             } else if (role === "Intern") {
                 employee = new Intern(name, id, email, school);
 
@@ -185,12 +186,12 @@ const addEmployee = () => {
 };
 
 const writeFile = data => {
-    fs.writeFile('./sample/index.html', data, err => {
+    fs.writeFile('./dist/index.html', data, err => {
         if (err) {
             console.log(err);
             return;
         } else {
-            console.log("Your team profile has been successfully created! Please check out index.html")
+            console.log("Your team profile has been successfully created! Please check out the index.html")
         }
     })
 };
